@@ -25,13 +25,13 @@ public class ProductDataServiceImpl implements ProductDataService {
 
     @Override
     public ResponseEntity<Product> saveNewProduct(NewProduct newProduct) {
-        Product product = new Product()
-            .setBrand(newProduct.getBrand())
-            .setCategory(newProduct.getCategory())
-            .setColor(newProduct.getColor())
-            .setPrice(newProduct.getPrice())
-            .setSeller(newProduct.getSeller())
-            .setSize(newProduct.getSize());
+        Product product = new Product();
+        product.setBrand(newProduct.getBrand());
+        product.setCategory(newProduct.getCategory());
+        product.setColor(newProduct.getColor());
+        product.setPrice(newProduct.getPrice());
+        product.setSeller(newProduct.getSeller());
+        product.setSize(newProduct.getSize());
         jpaProductRepository.save(product);
         return new ResponseEntity<>(product, HttpStatus.CREATED);
     }
